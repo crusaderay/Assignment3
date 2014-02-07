@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>78929C92-69B5-4AC9-AC00-EDD40B6467C6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Assignment3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5BF64278-6F9B-4676-B667-D48A723A6A5B</key>
+		<string>https://github.com/crusaderay/Assignment3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Assignment3.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5BF64278-6F9B-4676-B667-D48A723A6A5B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/crusaderay/Assignment3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5BF64278-6F9B-4676-B667-D48A723A6A5B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5BF64278-6F9B-4676-B667-D48A723A6A5B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Assignment3</string>
+		</dict>
+	</array>
+</dict>
+</plist>

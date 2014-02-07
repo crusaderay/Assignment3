@@ -27,6 +27,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,320,548)];
+    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:_url]];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:req];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -37,6 +43,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 @end

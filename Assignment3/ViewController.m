@@ -12,22 +12,26 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) DetailViewController *webView;
+
 @end
 
 @implementation ViewController
 
+Fruit *tempFruit;
+
 - (void)viewDidLoad
 {
     _allSelected = NO;
+    _hide = NO;
+    
     _cart = [[NSMutableArray alloc] initWithCapacity:0];
     
     for (int i=0; i<50; i++) {
-        Fruit *tempFruit = [[Fruit alloc] initWithWithName:@"Bananas" andColor:@"Yellow" andShape:@"Curvy"];
+        tempFruit = [[Fruit alloc] initWithWithName:[NSString stringWithFormat:@"Banana %d", i] andColor:@"Yellow" andShape:@"Curvy"];
         tempFruit.url = @"http://en.m.wikipedia.org/wiki/Banana";
         [_cart addObject:tempFruit];
-        
     }
-    
     self.title = @"Banana Bar";
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -38,6 +42,7 @@
     
     if(_allSelected){
         [_selectAll setTitle:@"Select None" forState:UIControlStateNormal];
+        
     } else {
         [_selectAll setTitle:@"Select All" forState:UIControlStateNormal];
     }
@@ -48,13 +53,16 @@
 //Should remove all of the fruit in the cart.
 -(IBAction)removeAllFruitInCart:(id)sender
 {
-    
+    _isHide = YES;
+    _allSelected = NO;
+    [_cartView reloadData];
 }
 
 //should add 50 bananas to the cart and display them!
 -(IBAction)fillCartWithBananas:(id)sender
 {
-    
+    _isHide = NO;
+    [_cartView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +93,8 @@
     if (cell == Nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"TableViewCell"];
     }
+    
+    
     if([_cart count] == 0){
         cell.textLabel.text = @"No Fruit in Cart";
         cell.detailTextLabel.text = @"";
@@ -93,22 +103,32 @@
         Fruit * tempFruit = [_cart objectAtIndex:indexPath.row];
         
         cell.textLabel.text = [tempFruit name];
-        cell.detailTextLabel.text = [tempFruit color];
+        //cell.detailTextLabel.text = [tempFruit color];
         
         if(_allSelected){
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            [_selectAll setTitle:@"Select None" forState:UIControlStateNormal];
         } else {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [_selectAll setTitle:@"Select All" forState:UIControlStateNormal];
         }
+        
+        if(_isHide){
+            cell.textLabel.text = nil;
+        } else {
+            cell.textLabel.text = [tempFruit name];
+        }
+        
     }
-    
-    
-    
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if(!self.isHide){
+        self.webView = [[DetailViewController alloc] init];
+        self.webView.url = tempFruit.url;
+        [self.navigationController pushViewController:self.webView animated:FALSE];//animated what is it?
+    }
 }
 
 @end
